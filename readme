@@ -1,3 +1,8 @@
+
+Necesario instalar en proyecto phpEmailer y vendor
+
+--------------------------------------------------------------------------------
+
 Para implementar  bloqueo  temporal tras varios intentos crear tabla en BD
 
 
@@ -7,20 +12,30 @@ CREATE TABLE failed_logins (
     failed_at DATETIME NOT NULL
 );
 
+BD
 
-CREATE TABLE user (
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    is_admin BOOLEAN DEFAULT FALSE,
-    active BOOLEAN DEFAULT FALSE,
-    activation_expirity DATETIME DEFAULT NULL,
-    activated_at DATETIME DEFAULT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    fechaUltimaConexion DATETIME DEFAULT NULL,
-    conexiones INT DEFAULT 0,
     reset_token VARCHAR(255) DEFAULT NULL,
     reset_token_expirity DATETIME DEFAULT NULL,
 );
+
+
+---------------------------------------------------------------------
+
+
+y el codigo para el archivo .env apunta a la raíz pero mejor cambiarlo
+.env
+DB_HOST=localhost
+DB_NAME=your_nameBD
+DB_USER=your_nameuser
+DB_PASS=your_password
+MAIL_HOST=smtp.example.com
+MAIL_USER=your_email@example.com
+MAIL_PASS=your_password
+MAIL_PORT=465
+MAIL_SECURE=ssl
+APP_URL=http://localhost:8080/antasturlogin
