@@ -1,0 +1,26 @@
+Para implementar  bloqueo  temporal tras varios intentos crear tabla en BD
+
+
+CREATE TABLE failed_logins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    failed_at DATETIME NOT NULL
+);
+
+
+CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    is_admin BOOLEAN DEFAULT FALSE,
+    active BOOLEAN DEFAULT FALSE,
+    activation_expirity DATETIME DEFAULT NULL,
+    activated_at DATETIME DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    fechaUltimaConexion DATETIME DEFAULT NULL,
+    conexiones INT DEFAULT 0,
+    reset_token VARCHAR(255) DEFAULT NULL,
+    reset_token_expirity DATETIME DEFAULT NULL,
+);
