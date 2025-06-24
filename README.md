@@ -58,6 +58,4 @@ CREATE TABLE failed_logins (
 - El archivo `.env` debe estar en la raíz del proyecto para su correcto funcionamiento.
 - Recuerda instalar **phpEmailer** mediante Composer o incluirlo en tu archivo `composer.json`.
 
-## Licencia
 
-[MIT](LICENSE) (modifica esto según corresponda a tu proyecto)
